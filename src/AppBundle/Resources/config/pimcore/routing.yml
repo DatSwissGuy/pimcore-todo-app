@@ -18,3 +18,8 @@ updateTask:
 deleteTask:
     path: /tasks/delete
     controller: \AppBundle\Controller\TaskController::deleteTaskAction
+
+# Chores (Formbuilder Demo)
+chores:
+    path: /chores
+    controller: \AppBundle\Controller\ChoreController::defaultAction

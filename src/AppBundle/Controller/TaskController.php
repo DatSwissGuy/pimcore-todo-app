@@ -3,7 +3,6 @@
 namespace AppBundle\Controller;
 
 use Pimcore\Controller\FrontendController;
-use Pimcore\Event\Model\RedirectEvent;
 use Pimcore\Model\DataObject\Task;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
