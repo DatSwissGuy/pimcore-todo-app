@@ -15,14 +15,20 @@ class ChoreController extends FrontendController
      */
     public function defaultAction(Request $request)
     {
-        $chore = new Chore();
-        $chore->setChore('Write a blog post');
-        $chore->setDueDate(new \DateTime('tomorrow'));
+        $choreListing = new Chore\Listing();
+        $chores = $choreListing->getObjects();
 
-        $form = $this->createForm(ChoreType::class, $chore);
+        $form = $this->createForm(ChoreType::class)->createView();
 
-        return $this->render('Chore/default.html.twig', [
-            'form' => $form->createView(),
-        ]);
+        $params = [
+            'chores' => $chores,
+            'form' => $form
+        ];
+
+        return $this->render('Chore/default.html.twig',$params);
+    }
+
+    public function addChoreAction(Request $request)
+    {
     }
 }

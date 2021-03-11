@@ -6,7 +6,7 @@
 
 
 Fields Summary: 
-- chore [input]
+- title [input]
 - dueDate [datetime]
 */ 
 
@@ -16,7 +16,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'Chore',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1615470695,
+   'modificationDate' => 1615478197,
    'userOwner' => 2,
    'userModification' => 2,
    'parentClass' => '',
@@ -81,13 +81,13 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'regex' => '',
              'unique' => false,
              'showCharCount' => false,
-             'name' => 'chore',
-             'title' => 'Chore',
+             'name' => 'title',
+             'title' => 'Title',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => false,
              'index' => false,
-             'locked' => NULL,
+             'locked' => false,
              'style' => '',
              'permissions' => NULL,
              'datatype' => 'data',
@@ -111,7 +111,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'mandatory' => false,
              'noteditable' => false,
              'index' => false,
-             'locked' => NULL,
+             'locked' => false,
              'style' => '',
              'permissions' => NULL,
              'datatype' => 'data',

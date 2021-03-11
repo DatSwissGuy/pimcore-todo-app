@@ -2,5 +2,11 @@
 
 {% block content %}
     <h1>Chores</h1>
+    <ul>
+        {% for chore in chores %}
+            <li>{{ chore.title }}</li>
+        {% endfor %}
+    </ul>
+    <hr>
     {{ form(form) }}
 {% endblock %}
