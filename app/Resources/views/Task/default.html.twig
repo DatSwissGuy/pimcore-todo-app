@@ -1,0 +1,33 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>Tasks</h1>
+    <div class="tasklist">
+        {% for task in tasks %}
+            <div class="task">
+                <form action="{{ path('updateTask') }}" method="post" style="display: inline-block">
+                    <input type="text" name="title" value="{{ task.title }}">
+                    <input type="hidden" name="id" value="{{ task.id }}">
+                    {% if task.status %}
+                        <input type="checkbox" name="status" checked>
+                    {% else %}
+                        <input type="checkbox" name="status">
+                    {% endif %}
+                    <button>Update</button>
+                </form>
+                <form action="{{ path('deleteTask') }}" method="post" style="display: inline-block">
+                    <input type="hidden" name="id" value="{{ task.id }}">
+                    <button>Delete</button>
+                </form>
+            </div>
+        {% endfor %}
+    </div>
+    <hr>
+    <div class="addTask">
+        <form action="{{ path('addTask') }}" method="post">
+            <input type="text" name="title">
+            <button>Add Task</button>
+        </form>
+    </div>
+    <hr>
+{% endblock %}

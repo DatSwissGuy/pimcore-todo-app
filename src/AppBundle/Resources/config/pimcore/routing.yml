@@ -1,0 +1,20 @@
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
+# Tasks (To Do App)
+tasks:
+    path: /tasks
+    controller: \AppBundle\Controller\TaskController::defaultAction
+
+addTask:
+    path: /tasks/add
+    controller: \AppBundle\Controller\TaskController::addTaskAction
+
+updateTask:
+    path: /tasks/update
+    controller: \AppBundle\Controller\TaskController::updateTaskAction
+
+deleteTask:
+    path: /tasks/delete
+    controller: \AppBundle\Controller\TaskController::deleteTaskAction
