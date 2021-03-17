@@ -1,0 +1,20 @@
+{
+  "name": "www",
+  "version": "1.0.0",
+  "description": "This skeleton should be used by experienced Pimcore developers for starting a new project from the ground up.  If you are new to Pimcore, it's better to start with our demo package, listed below 😉",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DatSwissGuy/pimcore-todo-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DatSwissGuy/pimcore-todo-app/issues"
+  },
+  "homepage": "https://github.com/DatSwissGuy/pimcore-todo-app#readme"
+}
