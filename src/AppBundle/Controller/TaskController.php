@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Form\Type\TaskType;
 use Pimcore\Controller\FrontendController;
 use Pimcore\Model\DataObject\Task;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -19,7 +20,11 @@ class TaskController extends FrontendController
         $taskListing = new Task\Listing();
         $tasks = $taskListing->getObjects();
 
-        $params = ['tasks' => $tasks];
+        $form = $this->createForm(TaskType::class)->createView();
+
+        $params = [
+            'tasks' => $tasks,
+            'form' => $form];
 
         return $this->renderTemplate('Task/default.html.twig', $params);
     }

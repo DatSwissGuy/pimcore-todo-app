@@ -24,10 +24,7 @@
     </div>
     <hr>
     <div class="addTask">
-        <form action="{{ path('addTask') }}" method="post">
-            <input type="text" name="title">
-            <button>Add Task</button>
-        </form>
+        {{ form(form) }}
     </div>
     <hr>
 {% endblock %}
