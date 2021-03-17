@@ -1,20 +1,18 @@
 {
-  "name": "www",
-  "version": "1.0.0",
-  "description": "This skeleton should be used by experienced Pimcore developers for starting a new project from the ground up.  If you are new to Pimcore, it's better to start with our demo package, listed below 😉",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/DatSwissGuy/pimcore-todo-app.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/DatSwissGuy/pimcore-todo-app/issues"
-  },
-  "homepage": "https://github.com/DatSwissGuy/pimcore-todo-app#readme"
+    "devDependencies": {
+        "@symfony/stimulus-bridge": "^2.0.0",
+        "@symfony/webpack-encore": "^1.0.0",
+        "core-js": "^3.0.0",
+        "regenerator-runtime": "^0.13.2",
+        "stimulus": "^2.0.0",
+        "webpack-notifier": "^1.6.0"
+    },
+    "license": "UNLICENSED",
+    "private": true,
+    "scripts": {
+        "dev-server": "encore dev-server",
+        "dev": "encore dev",
+        "watch": "encore dev --watch",
+        "build": "encore production --progress"
+    }
 }
