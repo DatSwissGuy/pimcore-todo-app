@@ -6,14 +6,15 @@ use Pimcore\Controller\FrontendController;
 use Pimcore\Model\DataObject\Task;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\HttpFoundation\Response;
 
 class TaskController extends FrontendController
 {
     /**
-     * @Template()
+     * @param Request $request
+     * @return Response
      */
-    public function defaultAction(Request $request)
+    public function defaultAction(Request $request): Response
     {
         $taskListing = new Task\Listing();
         $tasks = $taskListing->getObjects();
@@ -23,7 +24,11 @@ class TaskController extends FrontendController
         return $this->renderTemplate('Task/default.html.twig', $params);
     }
 
-    public function addTaskAction(Request $request)
+    /**
+     * @param Request $request
+     * @return RedirectResponse
+     */
+    public function addTaskAction(Request $request): RedirectResponse
     {
         $newTask = new Task();
         $newTask->setTitle($request->request->get('title'));
@@ -36,7 +41,11 @@ class TaskController extends FrontendController
         return new RedirectResponse('/tasks');
     }
 
-    public function updateTaskAction(Request $request)
+    /**
+     * @param Request $request
+     * @return RedirectResponse
+     */
+    public function updateTaskAction(Request $request): RedirectResponse
     {
         $taskById = Task::getById($request->request->get('id'));
         $taskById->setTitle($request->request->get('title'));
@@ -46,7 +55,11 @@ class TaskController extends FrontendController
         return new RedirectResponse('/tasks');
     }
 
-    public function deleteTaskAction(Request $request)
+    /**
+     * @param Request $request
+     * @return RedirectResponse
+     */
+    public function deleteTaskAction(Request $request): RedirectResponse
     {
         $taskById = Task::getById($request->request->get('id'));
         $taskById->delete();
