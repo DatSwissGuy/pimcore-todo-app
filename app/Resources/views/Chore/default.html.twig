@@ -4,7 +4,7 @@
     <h1>Chores</h1>
     <ul>
         {% for chore in chores %}
-            <li>{{ chore.title }}</li>
+            <li>{{ chore.title }} | {{ chore.dueDate }}</li>
         {% endfor %}
     </ul>
     <hr>

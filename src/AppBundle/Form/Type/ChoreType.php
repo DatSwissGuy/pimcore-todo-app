@@ -13,7 +13,7 @@ class ChoreType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('chore', TextType::class)
+            ->add('title', TextType::class)
             ->add('dueDate', DateType::class)
             ->add('save', SubmitType::class)
         ;
