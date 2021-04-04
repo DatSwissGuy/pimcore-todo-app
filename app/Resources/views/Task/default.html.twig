@@ -6,8 +6,9 @@
         {% for task in tasks %}
             <div class="task">
                 <form action="{{ path('updateTask') }}" method="post" style="display: inline-block">
+                    <label for="title">Task Title</label>
                     <input type="text" name="title" value="{{ task.title }}">
-                    <input type="hidden" name="id" value="{{ task.id }}">
+                     <input type="hidden" name="id" value="{{ task.id }}">
                     {% if task.status %}
                         <input type="checkbox" name="status" checked>
                     {% else %}
@@ -24,10 +25,7 @@
     </div>
     <hr>
     <div class="addTask">
-        <form action="{{ path('addTask') }}" method="post">
-            <input type="text" name="title">
-            <button>Add Task</button>
-        </form>
+        {{ form(form) }}
     </div>
     <hr>
 {% endblock %}

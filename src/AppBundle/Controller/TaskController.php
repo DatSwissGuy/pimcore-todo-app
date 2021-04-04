@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Form\Type\TaskType;
 use Pimcore\Controller\FrontendController;
 use Pimcore\Model\DataObject\Task;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -19,26 +20,33 @@ class TaskController extends FrontendController
         $taskListing = new Task\Listing();
         $tasks = $taskListing->getObjects();
 
-        $params = ['tasks' => $tasks];
+        $form = $this->createForm(TaskType::class);
+        $form->handleRequest($request);
 
-        return $this->renderTemplate('Task/default.html.twig', $params);
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $this->addTaskAction($form);
+
+            return new RedirectResponse('/tasks');
+        }
+
+        $renderParams = [
+            'tasks' => $tasks,
+            'form' => $form->createView()
+        ];
+
+        return $this->renderTemplate('Task/default.html.twig', $renderParams);
     }
 
-    /**
-     * @param Request $request
-     * @return RedirectResponse
-     */
-    public function addTaskAction(Request $request): RedirectResponse
+    private function addTaskAction($form): void
     {
         $newTask = new Task();
-        $newTask->setTitle($request->request->get('title'));
-        $newTask->setKey($request->request->get('title'));
+        $newTask->setTitle($form['title']->getData());
+        $newTask->setKey($form['title']->getData());
         $newTask->setParentId(1);
         $newTask->setPublished(true);
         $newTask->setStatus(false);
         $newTask->save();
-
-        return new RedirectResponse('/tasks');
     }
 
     /**
